@@ -1,0 +1,8 @@
+bo/gob/mingo/dircabi/sirebi/api/rest/RestAplicacion.class
+bo/gob/mingo/dircabi/sirebi/api/rest/v1/Aplicaciones.class
+bo/gob/mingo/dircabi/sirebi/api/rest/security/CorsResponseFilter.class
+bo/gob/mingo/dircabi/sirebi/api/rest/util/Utility.class
+bo/gob/mingo/dircabi/sirebi/api/rest/v1/Recursos.class
+bo/gob/mingo/dircabi/sirebi/api/rest/model/Credenciales.class
+bo/gob/mingo/dircabi/sirebi/api/rest/util/Util.class
+bo/gob/mingo/dircabi/sirebi/api/rest/security/AbstractResource.class

@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bo.gob.mingo.dircabi.sirebi.session.mappers.PorCasosMapper">
+   <resultMap id="usuarioMap" type="usuarioDto">
+         <result property="apellidoP" column="apellidop"/>				
+         <result property="apellidoM" column="apellidom"/>		
+         <result property="nombres" column="nombres"/>	
+         <result property="carnetIdentidad" column="carnet_identidad"/>	
+         <result property="idOficina" column="idoficina"/>		
+         <result property="oficina" column="oficina"/>	
+         <result property="idRestriccion" column="idrestriccion"/>		
+         <result property="idPerfilpred" column="idperfilpred"/>		
+         <result property="emailUsuario" column="emailusuario"/>		 
+         <result property="idUsuario" column="idusuario"/>
+   </resultMap>  
+      
+      <resultMap id="categoriaMap" type="categoriaDto">
+         <result property="codigo" column="codigo"/>				
+         <result property="descripcion" column="descripcion"/>		
+      </resultMap> 
+      
+      <resultMap id="datosMenuMap" type="datosMenuDto">
+         <result property="descModulo" column="descmodulo"/>				
+         <result property="menuPadre" column="menupadre"/>		
+          <result property="idMenuPadre" column="idmenupadre"/>				
+         <result property="idMenu" column="idmenu"/>	
+          <result property="nameMenu" column="namemenu"/>				
+         <result property="linkMenu" column="linkmenu"/>	
+      </resultMap>
+      
+         <resultMap id="oficinaMap" type="oficinaDto">
+         <result property="codigo" column="codigo"/>				
+         <result property="descripcion" column="descripcion"/>		
+      </resultMap> 
+                  
+      <resultMap id="passMap" type="passDto">
+         <result property="cambioClave" column="cambio_clave"/>				
+      </resultMap> 
+      <resultMap id="bienMap" type="bienDto">
+         <result property="codCaracteristica" column="cod_caracteristica"/>				
+         <result property="descCaracteristica" column="desc_caracteristica"/>		
+         <result property="detalle" column="detalle"/>	
+         <result property="unidad" column="unidad"/>		
+         <result property="detalleNum" column="detalle_num"/>	
+         <result property="codEstado" column="cod_estado"/>		
+         <result property="observaciones" column="observaciones"/>		
+   </resultMap>  
+   <resultMap id="porcasosMap" type="porcasosDto">
+         <result property="codCaso" column="cod_caso"/>				
+         <result property="codBien" column="cod_bien"/>				
+         <result property="nroCasoFelcn" column="nro_caso_felcn"/>
+         <result property="nroFile" column="nro_file"/>
+         <result property="fechaRecepcion" column="fecha_entrega_bien"/>				
+         <result property="aperturaCasoDistrital" column="apertura_caso_distrital"/>				
+         <result property="oficinaRecepcion" column="oficina_recepcion"/>				
+         <result property="nombreCaso" column="nombre_caso"/>			
+         <result property="delito" column="delito"/>			
+         <result property="tipoBien" column="tipo_bien"/>			
+         <result property="subCategoria" column="sub_categoria"/>
+         <result property="codCategoria" column="cod_categoria"/>			
+         <result property="categoria" column="categoria"/>			
+         <result property="zonaBarrio" column="zona_barrio"/>			
+         <result property="calleAvenida" column="calle_avenida"/>			
+         <result property="folioReal" column="folio_real"/>			
+         <result property="latitud" column="latitud"/>			
+         <result property="longitud" column="longitud"/>			
+         <result property="administrativo" column="administrativo"/>			
+         <result property="juridico" column="juridico"/>			
+         <result property="latitud" column="latitud"/>			
+         <result property="estadoAdm" column="estado_adm"/>	
+         <result property="statusJudicial" column="status_judicial"/>	
+         <result property="fechaInicioContrato" column="fecha_inicio_contrato"/>	
+         <result property="fechaFinalContrato" column="fecha_final_contrato"/>	
+         <result property="razonSocial" column="razon_social"/>	
+         <result property="responsable" column="responsable"/>	
+         <result property="fechaAperturaCaso" column="fecha_apertura_caso"/>	
+         <result property="depositoDesc" column="deposito_desc"/>	
+         <result property="codOficina" column="cod_oficina"/>	
+        	
+         
+   </resultMap>
+   <resultMap id="auditoriaMap" type="AuditoriaDto">
+         <result property="idUsuario" column="id_usuario"/>	
+         <result property="loginUsuario" column="login_usuario"/>	
+         <result property="estado" column="estado"/>	
+         <result property="fechaCre" column="fecha_cre"/>	
+         <result property="fechaMod" column="fecha_mod"/>	
+        </resultMap>
+         <select id="getAuditoria"  resultMap="auditoriaMap"> 
+      select * from usuario.f_aud_obtener_usuarios(#{loginUsuario});
+    </select>
+     <select id="getBien"  resultMap="bienMap"> 
+         select  * from  reporte_kardex_subrep_inventario(#{codCaso},#{numRegistro})
+    </select>
+    <select id="getBusquedaInventario"  resultMap="porcasosMap"> 
+          <!--select * from filtro_por_inventario_tabla(#{valor},#{oficina}, #{pagina})-->
+        select * from filtro_por_inventario_tabla(#{valor},#{oficina}, #{pagina})
+        
+    </select>
+    <select id="getBusquedaImplicado"  resultMap="porcasosMap"> 
+          select * from filtro_por_implicado_tabla(#{nombreImplicado},#{tipoImplicado},#{oficina}, #{pagina})
+    </select>
+    <select id="getBusquedaCaso"  resultMap="porcasosMap"> 
+         <!--select * from filtro_por_caso_tabla(#{caso},#{nrofile},#{oficina},#{pagina}) -->
+        select * from filtro_por_caso_tabla(#{caso},#{nombreCaso},#{nrofile},#{oficina},#{pagina}) 
+    </select>
+   
+    <select id="getUsuario"  resultMap="usuarioMap"> 
+        select * from usuario.obtener_datos_usuario(#{usuario},#{password})
+    </select>
+    
+    <select id="getBusquedaBienesAdeudados"  resultMap="porcasosMap"> 
+       select * from filtro_por_bienes_adeudados_tabla(#{dato},#{fechaInicio},#{fechaFin},#{vencido},#{oficinaBien},#{oficina},#{pagina});
+    </select>
+    
+    <select id="getCategorias"  resultMap="categoriaMap"> 
+       select * from obtener_categoria();
+    </select>
+    <select id="getOficina"  resultMap="oficinaMap"> 
+        SELECT * from public.obtener_oficina(#{codigo});
+    </select>
+    
+    <select id="actPass"  resultMap="passMap"> 
+       <!--select * from usuario.cambio_clave('8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92',3)-->
+       select * from usuario.cambio_clave(#{newpass}, #{id})
+    </select>
+     
+    <select id="getSubCategorias"  resultMap="categoriaMap"> 
+      select * from obtener_subcategoria(#{codCategoria})    
+    </select>
+    
+    <select id="getTipobien"  resultMap="categoriaMap"> 
+      select * from obtener_tipo_bien(#{codTipoBien})       
+    </select>
+    
+    <select id="getDatosMenu"  resultMap="datosMenuMap"> 
+      select * from usuario.obtener_datos_menu(#{idRol})     
+    </select>
+    
+    <select id="setAuditoria" resultType="hashmap"> 
+      select * from public.f_auditoria_consultas_ins(#{codRep},#{nombreAudi},#{idUsuario},#{ip},#{transaccion},#{idOficina},#{parametroBusqueda});
+    </select>
+    
+    <select id="getBusquedaBienes"  resultMap="porcasosMap"> 
+      select * 
+      from public.filtro_por_bienes_tabla_cat(#{codOficina},#{categoria});  
+    </select>
+    
+</mapper>

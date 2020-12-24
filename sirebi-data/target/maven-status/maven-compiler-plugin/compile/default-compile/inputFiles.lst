@@ -1,0 +1,12 @@
+/home/davicho/eclipse-workspace/sirebi/dircabiSirebiBackEndConsulta/sirebi-data/src/main/java/bo/gob/mingo/dircabi/sirebi/session/Repositorio.java
+/home/davicho/eclipse-workspace/sirebi/dircabiSirebiBackEndConsulta/sirebi-data/src/main/java/bo/gob/mingo/dircabi/sirebi/session/vo/DatosMenu.java
+/home/davicho/eclipse-workspace/sirebi/dircabiSirebiBackEndConsulta/sirebi-data/src/main/java/bo/gob/mingo/dircabi/sirebi/session/Session.java
+/home/davicho/eclipse-workspace/sirebi/dircabiSirebiBackEndConsulta/sirebi-data/src/main/java/bo/gob/mingo/dircabi/sirebi/session/vo/Bien.java
+/home/davicho/eclipse-workspace/sirebi/dircabiSirebiBackEndConsulta/sirebi-data/src/main/java/bo/gob/mingo/dircabi/sirebi/session/vo/Casos.java
+/home/davicho/eclipse-workspace/sirebi/dircabiSirebiBackEndConsulta/sirebi-data/src/main/java/bo/gob/mingo/dircabi/sirebi/session/vo/Password.java
+/home/davicho/eclipse-workspace/sirebi/dircabiSirebiBackEndConsulta/sirebi-data/src/main/java/bo/gob/mingo/dircabi/sirebi/session/mappers/PorCasosMapper.java
+/home/davicho/eclipse-workspace/sirebi/dircabiSirebiBackEndConsulta/sirebi-data/src/main/java/bo/gob/mingo/dircabi/sirebi/session/vo/Oficina.java
+/home/davicho/eclipse-workspace/sirebi/dircabiSirebiBackEndConsulta/sirebi-data/src/main/java/bo/gob/mingo/dircabi/sirebi/session/vo/Auditoria.java
+/home/davicho/eclipse-workspace/sirebi/dircabiSirebiBackEndConsulta/sirebi-data/src/main/java/bo/gob/mingo/dircabi/sirebi/session/vo/Usuario.java
+/home/davicho/eclipse-workspace/sirebi/dircabiSirebiBackEndConsulta/sirebi-data/src/main/java/bo/gob/mingo/dircabi/sirebi/session/mappers/Main.java
+/home/davicho/eclipse-workspace/sirebi/dircabiSirebiBackEndConsulta/sirebi-data/src/main/java/bo/gob/mingo/dircabi/sirebi/session/vo/CategoriasSubBien.java
